@@ -1,0 +1,32 @@
+# Chrome Extension for ChatGPT Prompts
+
+This is a Chrome Extension designed for use with the OpenAI GPT language model, specifically the ChatGPT interface. It allows users to quickly and easily generate responses to prompts in the ChatGPT interface using pre-written responses.
+
+## Features
+
+-   Pre-written prompts to help generate quick and easy responses.
+-   Ability to add custom prompts.
+-   Simple and intuitive user interface.
+
+## Installation
+
+To install this Chrome Extension, simply follow these steps:
+
+1.  Clone this project from GitHub.
+2.  Open Chrome and navigate to `chrome://extensions/`.
+3.  Turn on Developer Mode.
+4.  Click on "Load unpacked" and select the cloned project directory.
+5.  The extension should now be installed and ready to use.
+
+## Usage
+
+To use the extension:
+
+1.  Open the ChatGPT interface.
+2.  Click on the extension icon in the top right corner of Chrome.
+3.  Select a pre-written prompt or enter a custom prompt.
+4.  Click the prompt to automatically generate a response in the ChatGPT interface.
+
+## Contributions
+
+Contributions to this project are welcome! Please feel free to submit pull requests or report any issues.
