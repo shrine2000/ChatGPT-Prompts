@@ -3,28 +3,28 @@ const input = form.querySelector('textarea');
 
 // create buttons
 const button1 = document.createElement('button');
-button1.textContent = 'Button 1';
+button1.textContent = 'Convert this code in Java - ';
 button1.style.position = 'fixed';
 button1.style.bottom = '80px';
 button1.style.right = '20px';
 button1.classList.add('button-34');  
 
 const button2 = document.createElement('button');
-button2.textContent = 'Button 2';
+button2.textContent = 'Fix this code - ';
 button2.style.position = 'fixed';
 button2.style.bottom = '140px';
 button2.style.right = '20px';
 button2.classList.add('button-34');  
 
 const button3 = document.createElement('button');
-button3.textContent = 'Button 3';
+button3.textContent = 'Convert this passage into points - ';
 button3.style.position = 'fixed';
 button3.style.bottom = '200px';
 button3.style.right = '20px';
 button3.classList.add('button-34');  
 
 const button4 = document.createElement('button');
-button4.textContent = 'Button 4';
+button4.textContent = 'Please fix the grammar in my text - ';
 button4.style.position = 'fixed';
 button4.style.bottom = '260px';
 button4.style.right = '20px';
@@ -54,5 +54,5 @@ button3.addEventListener('click', () => {
 
 button4.addEventListener('click', () => {
   // set the value of the input field with the desired text
-  input.value = 'Fix grammar';
+  input.value = 'Please fix the grammar in my text - ';
 });
