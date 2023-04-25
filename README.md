@@ -15,7 +15,7 @@ This is a Chrome Extension designed for use with the OpenAI GPT language model, 
 
 To use ChatGPT Prompts, follow these steps:
 
-1.  Clone this repository to your local machine by running the following command in your terminal: `https://github.com/shrine2000/ChatGPT-Prompts`.
+1.  Clone this repository to your local machine by running the following command in your terminal: `git clone https://github.com/shrine2000/ChatGPT-Prompts`.
 2.  Open the Chrome browser and go to `chrome://extensions`.
 3.  Enable developer mode by toggling the switch in the top right corner of the screen.
 4.  Click the "Load unpacked" button and select the folder where you cloned the repository.
