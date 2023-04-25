@@ -2,33 +2,10 @@ const form = document.querySelector('form');
 const input = form.querySelector('textarea');
 
 // create buttons
-const button1 = document.createElement('button');
-button1.textContent = 'Convert this code in Java - ';
-button1.style.position = 'fixed';
-button1.style.bottom = '80px';
-button1.style.right = '20px';
-button1.classList.add('button-34');  
-
-const button2 = document.createElement('button');
-button2.textContent = 'Fix this code - ';
-button2.style.position = 'fixed';
-button2.style.bottom = '140px';
-button2.style.right = '20px';
-button2.classList.add('button-34');  
-
-const button3 = document.createElement('button');
-button3.textContent = 'Convert this passage into points - ';
-button3.style.position = 'fixed';
-button3.style.bottom = '200px';
-button3.style.right = '20px';
-button3.classList.add('button-34');  
-
-const button4 = document.createElement('button');
-button4.textContent = 'Please fix the grammar in my text - ';
-button4.style.position = 'fixed';
-button4.style.bottom = '260px';
-button4.style.right = '20px';
-button4.classList.add('button-34');  
+const button1 = createButton('Convert this code in Java - ', '80px');
+const button2 = createButton('Fix this code - ', '140px');
+const button3 = createButton('Convert this passage into points', '200px');
+const button4 = createButton('Please fix the grammar in my text - ', '260px');
 
 // add buttons to the page
 document.body.appendChild(button1);
@@ -36,23 +13,23 @@ document.body.appendChild(button2);
 document.body.appendChild(button3);
 document.body.appendChild(button4);
 
-// add click event listeners to the buttons
-button1.addEventListener('click', () => {
-  // set the value of the input field with the desired text
-  input.value = 'Convert this code in java - ';
-});
+// add click event listener to all buttons
+function handleButtonClick(event) {
+  input.value = event.target.textContent;
+}
 
-button2.addEventListener('click', () => {
-  // set the value of the input field with the desired text
-  input.value = 'Fix this code - ';
-});
+button1.addEventListener('click', handleButtonClick);
+button2.addEventListener('click', handleButtonClick);
+button3.addEventListener('click', handleButtonClick);
+button4.addEventListener('click', handleButtonClick);
 
-button3.addEventListener('click', () => {
-  // set the value of the input field with the desired text
-  input.value = 'Convert this passage into points';
-});
-
-button4.addEventListener('click', () => {
-  // set the value of the input field with the desired text
-  input.value = 'Please fix the grammar in my text - ';
-});
+// helper function to create button element
+function createButton(text, bottom) {
+  const button = document.createElement('button');
+  button.textContent = text;
+  button.style.position = 'fixed';
+  button.style.bottom = bottom;
+  button.style.right = '20px';
+  button.classList.add('button-34');
+  return button;
+}
