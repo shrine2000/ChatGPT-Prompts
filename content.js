@@ -23,10 +23,10 @@ function handleFabClick() {
   listContainer.style.overflow = 'scroll';
 
   // create list items
-  const listItem1 = createListItem('Convert this code in Java - ');
-  const listItem2 = createListItem('Fix this code - ');
-  const listItem3 = createListItem('Convert this passage into points - ');
-  const listItem4 = createListItem('Please fix the grammar in my text - ');
+  const listItem1 = createListItem('convert this code into Java - ');
+  const listItem2 = createListItem('fix this code - ');
+  const listItem3 = createListItem('convert this passage into points - ');
+  const listItem4 = createListItem('fix the grammar in this text - ');
 
   // add list items to the container
   listContainer.appendChild(listItem1);
