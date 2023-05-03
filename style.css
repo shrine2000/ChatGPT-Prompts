@@ -5,7 +5,7 @@
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Söhne", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
@@ -23,6 +23,8 @@
   width: 350px;
   transition: transform 0.2s ease-in-out;
   text-align: left;
+  overflow: hidden;
+
 }
 
 .list-item:hover,
@@ -31,6 +33,30 @@
 }
 
 .list-item:hover {
+  transform: scale(1.1);
+}
+
+
+.floating-action-button {
+  background-color: rgb(66, 67, 80);
+  border-radius: 50%;
+  bottom: 20px;
+  color: #fff;
+  cursor: pointer;
+  height: 60px;
+  position: fixed;
+  right: 20px;
+  width: 60px;
+  z-index: 9999;
+  transition: transform 0.2s ease-in-out;
+}
+
+.floating-action-button:hover,
+.floating-action-button:focus {
+  opacity: .75;
+}
+
+.floating-action-button:hover {
   transform: scale(1.1);
 }
 
