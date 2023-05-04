@@ -27,6 +27,22 @@
 
 }
 
+ul {
+  background-color: rgb(66, 67, 80); 
+  overflow: hidden; /* or 'auto' if you want scrollbars to appear when needed */
+  scrollbar-width: none; /* for Firefox */
+  -ms-overflow-style: none; /* for Internet Explorer and Edge */
+  /* hide horizontal scrollbar */
+  overflow-x: hidden;
+}
+
+/* for Webkit-based browsers (Chrome, Safari) */
+ul::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+
 .list-item:hover,
 .list-item:focus {
   opacity: .75;
