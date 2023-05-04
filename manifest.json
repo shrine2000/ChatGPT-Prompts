@@ -2,7 +2,7 @@
   "name": "prompt-gpt",
   "version": "1.0",
   "manifest_version": 3,
-  "description": "This extension displays buttons on the side of the search bar with prompts",
+  "description": "This browser extension displays a list of prompts on the side of the search bar. Use the prompts to quickly access your ChatGPT interface with a single click",
   "permissions": ["activeTab"],
 
   "content_scripts": [
