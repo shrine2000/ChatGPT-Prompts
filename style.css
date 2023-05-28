@@ -1,3 +1,39 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: rgb(66, 67, 80);
+
+}
+
+/* Sidebar Container */
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background-color: rgb(66, 67, 80);
+}
+
+/* Close Button */
+.close-button {
+  border: none;
+  background-color: rgb(66, 67, 80);
+  color: #000;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.close-button:hover,
+.close-button:focus {
+  opacity: 0.75;
+}
+
+
+/* List Item */
 .list-item {
   background-color: rgb(66, 67, 80);
   border-radius: 4px;
@@ -6,74 +42,85 @@
   color: #fff;
   cursor: pointer;
   font-family: "Söhne", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.5;
   margin-right: 15px;
-  margin-bottom: 10px; /* add margin bottom between items */
+  margin-bottom: 10px; /* Add margin bottom between items */
   outline: none;
   overflow: hidden;
   padding: 9px 20px 8px;
   position: relative;
-  text-align: center; /* center the text within each item */
+  text-align: left; /* Align the text to the left within each item */
   text-transform: none;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   width: 350px;
   transition: transform 0.2s ease-in-out;
-  text-align: left;
-  overflow: hidden;
-
 }
 
 ul {
   background-color: rgb(66, 67, 80); 
   overflow: hidden; /* or 'auto' if you want scrollbars to appear when needed */
-  scrollbar-width: none; /* for Firefox */
-  -ms-overflow-style: none; /* for Internet Explorer and Edge */
-  /* hide horizontal scrollbar */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  /* Hide horizontal scrollbar */
   overflow-x: hidden;
 }
 
-/* for Webkit-based browsers (Chrome, Safari) */
+/* For Webkit-based browsers (Chrome, Safari) */
 ul::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
 
-
 .list-item:hover,
 .list-item:focus {
-  opacity: .75;
+  opacity: 0.75;
 }
 
 .list-item:hover {
   transform: scale(1.1);
 }
 
-
-.floating-action-button {
+ 
+/* Input Field */
+input[type="text"] {
+  display: inline-block;
+  width: calc(100% - 100px); /* Adjust the width to leave space for the add button */
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
   background-color: rgb(66, 67, 80);
-  border-radius: 50%;
-  bottom: 20px;
+
+}
+
+/* Add Button */
+button.add-button {
+  display: inline-block;
+  width: 80px; /* Adjust the width as needed */
+  margin-left: 10px; /* Add some spacing between the input field and the button */
+  background-color: rgb(66, 67, 80);
+  border: none;
+  border-radius: 4px;
   color: #fff;
   cursor: pointer;
-  height: 60px;
-  position: fixed;
-  right: 20px;
-  width: 60px;
-  z-index: 9999;
-  transition: transform 0.2s ease-in-out;
+  font-family: "Söhne", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  transition: opacity 0.2s ease-in-out;
+  outline: none;
 }
 
-.floating-action-button:hover,
-.floating-action-button:focus {
-  opacity: .75;
+button.add-button:hover,
+button.add-button:focus {
+  opacity: 0.75;
 }
 
-.floating-action-button:hover {
+button.add-button:hover {
   transform: scale(1.1);
 }
-
- 

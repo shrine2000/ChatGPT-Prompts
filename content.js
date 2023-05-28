@@ -1,66 +1,80 @@
-const fab = document.createElement('button');
-fab.classList.add('fab');
-fab.textContent = '+';
-fab.style.position = 'fixed';
-fab.style.bottom = '50px';
-fab.style.right = '20px';
-fab.classList.add('floating-action-button');
-fab.addEventListener('click', handleFabClick);
-document.body.appendChild(fab);
+// Load existing list items from localStorage
+const storedItems = localStorage.getItem('listItems');
+const parsedItems = storedItems ? JSON.parse(storedItems) : [];
 
-function handleFabClick() {
-  const listContainer = document.createElement('ul');
-  listContainer.style.position = 'fixed';
-  listContainer.style.bottom = '80px';
-  listContainer.style.right = '20px';
-  listContainer.style.height = '200px';
-  listContainer.style.overflow = 'scroll';
+const sidebarContainer = document.createElement('div');
+sidebarContainer.classList.add('sidebar-container');
+sidebarContainer.style.position = 'fixed';
+sidebarContainer.style.top = '0';
+sidebarContainer.style.right = '0';
+sidebarContainer.style.width = '250px';
+sidebarContainer.style.height = '100%';
+sidebarContainer.style.backgroundColor = '#f1f1f1';
 
-  const listItem1 = createListItem('convert this code into java - ');
-  const listItem2 = createListItem('fix this code - ');
-  const listItem3 = createListItem('convert this passage into points - ');
-  const listItem4 = createListItem('fix the grammar in this text - ');
+const closeButton = document.createElement('button');
+closeButton.textContent = 'Close';
+closeButton.classList.add('close-button');
+closeButton.addEventListener('click', handleCloseButtonClick);
 
-  listContainer.appendChild(listItem1);
-  listContainer.appendChild(listItem2);
-  listContainer.appendChild(listItem3);
-  listContainer.appendChild(listItem4);
+const listContainer = document.createElement('ul');
+listContainer.style.height = 'calc(100% - 100px)';
+listContainer.style.overflow = 'scroll';
 
-  listItem1.addEventListener('click', handleListItemClick);
-  listItem2.addEventListener('click', handleListItemClick);
-  listItem3.addEventListener('click', handleListItemClick);
-  listItem4.addEventListener('click', handleListItemClick);
+const newItemInput = document.createElement('input');
+newItemInput.type = 'text';
+newItemInput.placeholder = 'Enter new item';
 
-  document.body.appendChild(listContainer);
+const addButton = document.createElement('button');
+addButton.textContent = 'Add';
+addButton.classList.add('add-button');
+addButton.addEventListener('click', handleAddButtonClick);
 
-  function handleListItemClick(event) {
-    const form = document.querySelector('form');
-    const input = form?.querySelector('textarea');
+sidebarContainer.append(closeButton, listContainer, newItemInput, addButton);
+document.body.appendChild(sidebarContainer);
 
-    if (input == null) {
-      const textarea = document.querySelector('textarea');
-      const dataId = textarea.getAttribute('data-id');
-      const inputarea = document.querySelector(`[data-id="${dataId}"]`);
-      inputarea.value = event.target.textContent;
-    } else {
-      input.value = event.target.textContent;
-    }
+// Initialize the list items with the stored items
+parsedItems.forEach((itemText) => {
+  const listItem = createListItem(itemText);
+  listItem.addEventListener('click', handleListItemClick);
+  listContainer.appendChild(listItem);
+});
 
-    listContainer.remove();
+function handleListItemClick(event) {
+  const form = document.querySelector('form');
+  const input = form?.querySelector('textarea');
+
+  if (input == null) {
+    const textarea = document.querySelector('textarea');
+    const dataId = textarea.getAttribute('data-id');
+    const inputarea = document.querySelector(`[data-id="${dataId}"]`);
+    inputarea.value = event.target.textContent;
+  } else {
+    input.value = event.target.textContent;
   }
+}
 
-  function createListItem(text) {
-    const listItem = document.createElement('li');
-    listItem.textContent = text;
-    listItem.classList.add('list-item');
-    return listItem;
-  }
+function createListItem(text) {
+  const listItem = document.createElement('li');
+  listItem.textContent = text;
+  listItem.classList.add('list-item');
+  return listItem;
+}
 
-  document.body.addEventListener('click', handleDocumentClick);
+function handleCloseButtonClick() {
+  sidebarContainer.remove();
+  closeButton.removeEventListener('click', handleCloseButtonClick);
+}
 
-  function handleDocumentClick(event) {
-    if (!listContainer.contains(event.target) && event.target !== fab) {
-      listContainer.remove();
-    }
+function handleAddButtonClick() {
+  const newItemText = newItemInput.value.trim();
+  if (newItemText !== '') {
+    const newItem = createListItem(newItemText);
+    newItem.addEventListener('click', handleListItemClick);
+    listContainer.appendChild(newItem);
+    newItemInput.value = '';
+
+    // Save the updated list items to localStorage
+    parsedItems.push(newItemText);
+    localStorage.setItem('listItems', JSON.stringify(parsedItems));
   }
 }
