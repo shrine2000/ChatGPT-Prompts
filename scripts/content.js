@@ -10,21 +10,22 @@ sidebarContainer.style.right = '0';
 sidebarContainer.style.width = '300px';
 sidebarContainer.style.height = '100%';
 sidebarContainer.style.backgroundColor = '#f1f1f1';
-
+ 
 const closeButton = document.createElement('button');
-closeButton.textContent = 'Close';
+closeButton.textContent = 'Open';
 closeButton.classList.add('close-button');
-closeButton.addEventListener('click', handleCloseButtonClick);
+closeButton.addEventListener('click', toggleSidebar);
 
-const tabContainer = document.createElement('div'); // New tab container
+
+const tabContainer = document.createElement('div'); 
 tabContainer.classList.add('tab-container');
 
-const tab1Button = document.createElement('button');  
+const tab1Button = document.createElement('button');
 tab1Button.textContent = 'User';
 tab1Button.classList.add('tab-button');
 tab1Button.addEventListener('click', tabLoadUserPrompts);
 
-const tab2Button = document.createElement('button');  
+const tab2Button = document.createElement('button');
 tab2Button.textContent = 'Online';
 tab2Button.classList.add('tab-button');
 tab2Button.addEventListener('click', tabFetchPrompts);
@@ -33,18 +34,27 @@ const listContainer = document.createElement('ul');
 listContainer.style.height = 'calc(100% - 100px)';
 listContainer.style.overflow = 'scroll';
 
+const inputContainer = document.createElement('div');
+inputContainer.style.display = 'flex';
+inputContainer.style.justifyContent = 'space-between';
+inputContainer.style.margin = '10px 0';
+
 const newItemInput = document.createElement('input');
 newItemInput.type = 'text';
 newItemInput.placeholder = 'Enter new item';
+newItemInput.style.flex = '7';
 
 const addButton = document.createElement('button');
 addButton.textContent = 'Add';
 addButton.classList.add('add-button');
+addButton.style.flex = '3';
 addButton.addEventListener('click', handleAddButtonClick);
 
-sidebarContainer.append(closeButton, tabContainer, listContainer, newItemInput, addButton); // Append the tab container
-tabContainer.append(tab1Button, tab2Button); // Append the tab buttons
+sidebarContainer.append(closeButton, tabContainer, listContainer, inputContainer); 
+tabContainer.append(tab1Button, tab2Button); 
+inputContainer.append(newItemInput, addButton);
 document.body.appendChild(sidebarContainer);
+
 
 // Initialize the list items with the stored items
 parsedItems.forEach((itemText) => {
@@ -87,8 +97,12 @@ function createListItem(text) {
 }
 
 function handleCloseButtonClick() {
-  sidebarContainer.remove();
-  closeButton.removeEventListener('click', handleCloseButtonClick);
+  toggleSidebar();
+}
+
+function toggleSidebar() {
+  sidebarContainer.classList.toggle('open');
+  closeButton.textContent = sidebarContainer.classList.contains('open') ? 'Close' : 'Open';
 }
 
 function handleAddButtonClick() {
